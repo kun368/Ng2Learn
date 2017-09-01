@@ -18,6 +18,7 @@ export class TodoService {
       desc: todoItem,
       completed: false
     };
+    console.log(this.api_url);
     return this.http
       .post(this.api_url, JSON.stringify(todo), {headers: this.headers})
       .toPromise()
@@ -26,7 +27,7 @@ export class TodoService {
   }
 
   toggleTodo(todo: Todo): Promise<Todo> {
-    const url = '${this.api_url}/${todo.id}';
+    const url = `${this.api_url}/${todo.id}`;
     console.log(url);
     let updatedTodo = Object.assign({}, todo, {completed: !todo.completed});
     return this.http
@@ -37,7 +38,8 @@ export class TodoService {
   }
 
   deleteTodoById(id: string): Promise<Todo> {
-    const url = '${this.api_url}/${id}';
+    const url = `${this.api_url}/${id}`;
+    console.log(url);
     return this.http
       .delete(url, {headers: this.headers})
       .toPromise()
@@ -46,6 +48,7 @@ export class TodoService {
   }
 
   getTodos(): Promise<Todo[]> {
+    console.log(this.api_url);
     return this.http.get(this.api_url)
       .toPromise()
       .then(res => res.json().data as Todo[])

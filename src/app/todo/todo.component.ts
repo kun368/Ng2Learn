@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Todo} from "./todo.model";
 import {TodoService} from "./todo.service";
+import {sendRequest} from "selenium-webdriver/http";
 
 @Component({
   selector: 'app-todo',
@@ -16,6 +17,11 @@ export class TodoComponent implements OnInit {
   constructor(private service: TodoService) { }
 
   ngOnInit() {
+    this.service
+      .getTodos()
+      .then(todos => {
+        this.todos = [...todos];
+      })
   }
 
   addTodo() {
@@ -41,7 +47,7 @@ export class TodoComponent implements OnInit {
     this.service
       .deleteTodoById(todo.id)
       .then(t => {
-        this.todos = [...this.todos.slice(0, i), t, ...this.todos.slice(i+1)];
+        this.todos = [...this.todos.slice(0, i), ...this.todos.slice(i+1)];
       });
   }
 
@@ -51,6 +57,18 @@ export class TodoComponent implements OnInit {
       .then(todos => {
         this.todos = [...todos];
       });
+  }
+
+  removeCompletedTodos() {
+    const arr: Promise<Todo>[] = [];
+    for (let obj of this.todos) {
+      if (obj.completed)
+        arr.push(this.service.deleteTodoById(obj.id))
+    }
+    Promise.all(arr).then(t => {
+      console.log("removeCompletedTodos done.");
+    });
+    this.getTodos();
   }
 
 }

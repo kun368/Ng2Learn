@@ -1,6 +1,6 @@
 <section class="todoapp">
   <header class="header">
-    <h1>Todos</h1>
+    <h1>待办事项</h1>
     <input class="new-todo" placeholder="What needs to be done?" autofocus="" [(ngModel)]="desc" (keyup.enter)="addTodo()">
   </header>
   <section class="main" *ngIf="todos?.length > 0">
@@ -17,13 +17,17 @@
   </section>
   <footer class="footer" *ngIf="todos?.length > 0">
     <span class="todo-count">
-      <strong>{{todos?.length}}</strong> {{todos?.length == 1 ? 'item' : 'items'}} left
+      剩余 <strong>{{todos?.length}}</strong> 条
     </span>
     <ul class="filters">
-      <li><a href="">All</a></li>
-      <li><a href="">Active</a></li>
-      <li><a href="">Completed</a></li>
+      <li><a href="">所有</a></li>
+      <li><a href="">未完成</a></li>
+      <li><a href="">完成</a></li>
     </ul>
-    <button class="clear-completed">Clear completed</button>
+    <button
+      class="clear-completed"
+      (click)="removeCompletedTodos(); $event.stopPropagation()">
+      清除已完成
+    </button>
   </footer>
 </section>
