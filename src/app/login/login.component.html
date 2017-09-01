@@ -1,0 +1,25 @@
+<div>
+  <form #loginFormRef="ngForm" (ngSubmit)="onSubmit(loginFormRef.value)">
+    <fieldset ngModelGroup="login">
+      <input
+        placeholder="请输入用户名"
+        name="username"
+        required minlength="3"
+        [(ngModel)]="username" #usernameRef="ngModel"
+        type="text">
+      <div *ngIf="usernameRef.errors">用户名格式错误</div>
+      <br/>
+
+      <input
+        placeholder="请输入密码"
+        required
+        name="password"
+        [(ngModel)]="password" #passwordRef="ngModel"
+        type="password">
+      <div *ngIf="passwordRef.errors">密码格式错误</div>
+      <br/>
+
+      <button type="submit">提交</button>
+    </fieldset>
+  </form>
+</div>
