@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Todo} from "./todo.model";
 import {TodoService} from "./todo.service";
-import {sendRequest} from "selenium-webdriver/http";
 
 @Component({
   selector: 'app-todo',

@@ -1,11 +1,6 @@
 {
   "todos": [
     {
-      "id": "5090074b-5aa0-4d24-afe9-f7802d7fb873",
-      "desc": "起床",
-      "completed": true
-    },
-    {
       "id": "5fb731e4-8e09-4d28-a081-156458d37257",
       "desc": "上学",
       "completed": false
@@ -16,7 +11,7 @@
       "completed": false
     },
     {
-      "id": "f88c6146-4c07-b90d-5fd7-d1a5d3f711ce",
+      "id": "9f92e2c2-0844-50de-c977-995026c6fc89",
       "desc": "123",
       "completed": false
     }

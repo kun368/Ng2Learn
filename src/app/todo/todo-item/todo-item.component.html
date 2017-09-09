@@ -1,0 +1,5 @@
+<div class="view">
+  <input class="toggle" type="checkbox" (click)="par.toggleTodo(curTodo)" [checked]="curTodo.completed">
+  <label (click)="par.toggleTodo(curTodo)">{{curTodo.desc}}</label>
+  <button class="destroy" (click)="par.removeTodo(curTodo); $event.stopPropagation()"></button>
+</div>
