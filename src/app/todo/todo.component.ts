@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Todo} from "./todo.model";
 import {TodoService} from "./todo.service";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 
 @Component({
   selector: 'app-todo',
@@ -13,14 +14,19 @@ export class TodoComponent implements OnInit {
   todos: Todo[] = [];
   desc = '';
 
-  constructor(private service: TodoService) { }
+  constructor(private service: TodoService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
-    this.service
-      .getTodos()
-      .then(todos => {
-        this.todos = [...todos];
-      })
+    this.route.params.forEach((params: Params) => {
+      let filter = params['filter'];
+      this.service
+        .filterTodos(filter)
+        .then(todos => {
+          this.todos = [...todos];
+        })
+    });
   }
 
   addTodo() {
@@ -52,7 +58,7 @@ export class TodoComponent implements OnInit {
 
   getTodos(): void {
     this.service
-      .getTodos()
+      .filterTodos()
       .then(todos => {
         this.todos = [...todos];
       });
@@ -65,9 +71,10 @@ export class TodoComponent implements OnInit {
         arr.push(this.service.deleteTodoById(obj.id))
     }
     Promise.all(arr).then(t => {
-      console.log("removeCompletedTodos done.");
+      this.getTodos();
     });
-    this.getTodos();
   }
+
+
 
 }
