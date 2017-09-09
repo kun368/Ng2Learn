@@ -1,0 +1,8 @@
+<header class="header">
+  <h1>待办事项</h1>
+  <input class="new-todo"
+         placeholder="What needs to be done?"
+         autofocus=""
+         [(ngModel)]="par.desc"
+         (keyup.enter)="par.addTodo()">
+</header>

@@ -1,0 +1,16 @@
+
+<footer class="footer" *ngIf="par.todos?.length > 0">
+    <span class="todo-count">
+      剩余 <strong>{{par.todos?.length}}</strong> 条
+    </span>
+  <ul class="filters">
+    <li><a href="">所有</a></li>
+    <li><a href="">未完成</a></li>
+    <li><a href="">完成</a></li>
+  </ul>
+  <button
+    class="clear-completed"
+    (click)="par.removeCompletedTodos(); $event.stopPropagation()">
+    清除已完成
+  </button>
+</footer>

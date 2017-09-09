@@ -1,6 +1,5 @@
 import {RouterModule, Routes} from "@angular/router";
 import {LoginComponent} from "./login/login.component";
-import {TodoComponent} from "./todo/todo.component";
 
 /**
  * Created by zhangzhengkun on 2017/9/1.
@@ -13,7 +12,7 @@ export const routes: Routes = [
   },
   {
     path: 'todo',
-    component: TodoComponent
+    redirectTo: 'todo'
   },
   {
     path: 'login',
