@@ -25,7 +25,6 @@ import {TodoModule} from "./todo/todo.module";
     FormsModule,
     HttpModule,
     routing,
-    InMemoryWebApiModule.forRoot(InMemoryTodoDbService),
     TodoModule
   ],
   providers: [
