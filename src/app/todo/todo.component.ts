@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Todo} from "./todo.model";
 import {TodoService} from "./todo.service";
 import {ActivatedRoute, Params, Router} from "@angular/router";
+import {Todo} from "./entities";
 
 @Component({
   selector: 'app-todo',

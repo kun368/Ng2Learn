@@ -1,0 +1,45 @@
+{
+  "todos": [
+    {
+      "id": "bc850db8-a475-0380-652d-6c9719731a87",
+      "desc": "睡觉",
+      "completed": false,
+      "userId": 1
+    },
+    {
+      "id": "8e749d57-325c-8de2-b57b-9418b98533fc",
+      "desc": "学习",
+      "completed": true,
+      "userId": 1
+    },
+    {
+      "id": "63e525ed-3b72-307e-ca37-4fc5b10f41b7",
+      "desc": "喝水",
+      "completed": true,
+      "userId": 2
+    },
+    {
+      "id": "9d30b0c7-9199-c2ee-cc2a-c204f0535b50",
+      "desc": "打豆豆",
+      "completed": false,
+      "userId": 0
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "zhangsan",
+      "password": "123456"
+    },
+    {
+      "id": 2,
+      "username": "lisi",
+      "password": "123456"
+    },
+    {
+      "id": 3,
+      "username": "root",
+      "password": "123456"
+    }
+  ]
+}

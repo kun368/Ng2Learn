@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Todo} from "./todo.model";
+import {Todo} from "./entities";
 import {UUID} from "angular2-uuid";
 import {Http, Headers} from "@angular/http";
 import 'rxjs/add/operator/toPromise'
@@ -7,9 +7,10 @@ import 'rxjs/add/operator/toPromise'
 @Injectable()
 export class TodoService {
 
-  // private api_url = "api/todos";
   private api_url = "http://localhost:3000/todos";
   private headers = new Headers({'Content-Type': 'application/json'});
+
+  userId: number = 0;
 
   constructor(private http: Http) { }
 
@@ -17,7 +18,8 @@ export class TodoService {
     let todo: Todo = {
       id: UUID.UUID(),
       desc: todoItem,
-      completed: false
+      completed: false,
+      userId: this.userId
     };
     console.log(this.api_url);
     return this.http
