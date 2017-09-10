@@ -9,6 +9,7 @@ import {TodoService} from "./todo.service";
 import {routing} from "./todo.routes";
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
+import {CoreModule} from "../core/core.module";
 /**
  * Created by zhangzhengkun on 2017/9/9.
  */
@@ -18,7 +19,8 @@ import { TodoListComponent } from './todo-list/todo-list.component';
     CommonModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    CoreModule
   ],
   declarations: [
     TodoComponent,

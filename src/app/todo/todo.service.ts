@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Todo} from "./entities";
+import {Todo} from "../entities";
 import {UUID} from "angular2-uuid";
 import {Http, Headers} from "@angular/http";
 import 'rxjs/add/operator/toPromise'
@@ -19,7 +19,7 @@ export class TodoService {
       id: UUID.UUID(),
       desc: todoItem,
       completed: false,
-      userId: this.userId
+      userId: this.currentUserId()
     };
     console.log(this.api_url);
     return this.http
@@ -51,6 +51,7 @@ export class TodoService {
   }
 
   private getTodos(url: string): Promise<Todo[]> {
+    url = `${url}&userId=${this.currentUserId()}`;
     console.log(url);
     return this.http.get(url)
       .toPromise()
@@ -68,7 +69,7 @@ export class TodoService {
         url = `${this.api_url}?completed=true`;
         break;
       default:
-        url = this.api_url;
+        url = `${this.api_url}?`;
     }
     return this.getTodos(url);
   }
@@ -76,6 +77,10 @@ export class TodoService {
   private handleError(error: any): Promise<any> {
     console.log('An error occurred', error);
     return Promise.reject(error.meaning || error);
+  }
+
+  private currentUserId(): number {
+    return +localStorage.getItem('userId');
   }
 
 }
