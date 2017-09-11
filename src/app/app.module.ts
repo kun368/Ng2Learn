@@ -5,8 +5,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
-import {routing} from "./app.routes";
 import {TodoModule} from "./todo/todo.module";
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import {TodoModule} from "./todo/todo.module";
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing,
+    AppRoutingModule,
     TodoModule
   ],
   providers: [

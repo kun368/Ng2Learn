@@ -5,11 +5,10 @@ import {HttpModule} from "@angular/http";
 import {TodoComponent} from "./todo.component";
 import {TodoFooterComponent} from "./todo-footer/todo-footer.component";
 import {TodoHeaderComponent} from "./todo-header/todo-header.component";
-import {TodoService} from "./todo.service";
-import {routing} from "./todo.routes";
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import {CoreModule} from "../core/core.module";
+import {TodoRoutingModule} from "./todo-routing.module";
 /**
  * Created by zhangzhengkun on 2017/9/9.
  */
@@ -19,7 +18,7 @@ import {CoreModule} from "../core/core.module";
     CommonModule,
     FormsModule,
     HttpModule,
-    routing,
+    TodoRoutingModule,
     CoreModule
   ],
   declarations: [
@@ -32,6 +31,4 @@ import {CoreModule} from "../core/core.module";
   providers: [
   ]
 })
-export class TodoModule {
-
-}
+export class TodoModule {}
