@@ -17,6 +17,10 @@ export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'playground',
+    loadChildren: 'app/playground/playground.module#PlaygroundModule'
   }
 ];
 
