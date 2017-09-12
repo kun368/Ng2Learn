@@ -1,8 +1,24 @@
 <!--The whole content below can be removed with the new code.-->
-<!--<base href="/">-->
-<div style="text-align:center">
-  <h1>
-    {{title}}!!
-  </h1>
-</div>
-<router-outlet></router-outlet>
+<mdl-layout mdl-layout-fixed-header mdl-layout-header-seamed>
+  <mdl-layout-header>
+    <mdl-layout-header-row>
+      <mdl-layout-title>{{title}}</mdl-layout-title>
+      <mdl-layout-spacer></mdl-layout-spacer>
+      <!-- Navigation. We hide it in small screens. -->
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link">
+          退出
+        </a>
+      </nav>
+    </mdl-layout-header-row>
+  </mdl-layout-header>
+  <mdl-layout-drawer>
+    <mdl-layout-title>{{title}}</mdl-layout-title>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link">Link</a>
+    </nav>
+  </mdl-layout-drawer>
+  <mdl-layout-content class="content">
+    <router-outlet></router-outlet>
+  </mdl-layout-content>
+</mdl-layout>

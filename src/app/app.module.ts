@@ -7,6 +7,7 @@ import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {TodoModule} from "./todo/todo.module";
 import {AppRoutingModule} from "./app-routing.module";
+import {MdlModule} from "angular2-mdl";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {AppRoutingModule} from "./app-routing.module";
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    TodoModule
+    TodoModule,
+    MdlModule
   ],
   providers: [
 

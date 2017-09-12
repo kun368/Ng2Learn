@@ -21,8 +21,9 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(formVal) {
+    console.log("......", formVal);
     this.authService
-      .loginWithCredentials(formVal.login.username, formVal.login.password)
+      .loginWithCredentials(formVal.username, formVal.password)
       .then(auth => {
         let redirectUrl = (auth.redirectUrl === null) ? '/' : auth.redirectUrl;
         if (!auth.hasError) {

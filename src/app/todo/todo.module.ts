@@ -9,6 +9,7 @@ import { TodoItemComponent } from './todo-item/todo-item.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import {CoreModule} from "../core/core.module";
 import {TodoRoutingModule} from "./todo-routing.module";
+import {MdlModule} from "angular2-mdl";
 /**
  * Created by zhangzhengkun on 2017/9/9.
  */
@@ -19,7 +20,8 @@ import {TodoRoutingModule} from "./todo-routing.module";
     FormsModule,
     HttpModule,
     TodoRoutingModule,
-    CoreModule
+    CoreModule,
+    MdlModule
   ],
   declarations: [
     TodoComponent,
